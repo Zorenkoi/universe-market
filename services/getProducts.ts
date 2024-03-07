@@ -3,49 +3,54 @@ import { Product, Category } from "@/interfaces/interfaces";
 
 const BASE_URL = "https://fakestoreapi.com";
 
-export const getAllProducts = async (): Promise<Product[]> => {
+export const getAllProducts = async (): Promise<Product[] | undefined> => {
   try {
     const res = await fetch(`${BASE_URL}/products`);
     const data = await res.json();
 
     return data;
   } catch (error) {
-    console.log(error);
+    console.error(error);
+    return undefined;
   }
 };
 
 export const getOneProductById = async (
   productId: number
-): Promise<Product> => {
+): Promise<Product | undefined> => {
   try {
     const res = await fetch(`${BASE_URL}/products/${productId}`);
     const data = await res.json();
 
     return data;
   } catch (error) {
-    console.log(error);
+    console.error(error);
+    return undefined;
   }
 };
 
 export const getProductsByCategory = async (
   category: string
-): Promise<Product[]> => {
-  // const { data } = await axios.get(`${BASE_URL}/products/category/${category}`);
+): Promise<Product[] | undefined> => {
+  try {
+    const res = await fetch(`${BASE_URL}/products/category/${category}`);
+    const data = await res.json();
 
-  const res = await fetch(`${BASE_URL}/products/category/${category}`);
-  const data = await res.json();
-  return data;
+    return data;
+  } catch (error) {
+    console.error(error);
+    return undefined;
+  }
 };
 
-export const getAllCategories = async (): Promise<string[]> => {
-  const res = await fetch(`${BASE_URL}/products/categories`);
-  const data = await res.json();
+export const getAllCategories = async (): Promise<string[] | undefined> => {
+  try {
+    const res = await fetch(`${BASE_URL}/products/categories`);
+    const data = await res.json();
 
-  return data;
-};
-
-export const getOneCategoryById = async (category: string) => {
-  const { data } = await axios.get(`${BASE_URL}/categories/${category}`);
-
-  return data;
+    return data;
+  } catch (error) {
+    console.error(error);
+    return undefined;
+  }
 };
