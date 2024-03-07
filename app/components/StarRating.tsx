@@ -1,4 +1,5 @@
 "use client";
+// @ts-ignore
 import StarRatings from "react-star-ratings";
 
 import React from "react";
