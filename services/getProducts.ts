@@ -37,9 +37,7 @@ export const getProductsByCategory = async (
   return data;
 };
 
-export const getAllCategories = async (): Promise<Category[]> => {
-  // const { data } = await axios.get(`${BASE_URL}/products/categories`);
-
+export const getAllCategories = async (): Promise<string[]> => {
   const res = await fetch(`${BASE_URL}/products/categories`);
   const data = await res.json();
 

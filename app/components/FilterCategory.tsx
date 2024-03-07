@@ -38,6 +38,8 @@ const FilterCategory = () => {
     router.push(query);
   };
 
+  console.log(categories);
+
   return (
     <Flex gap={"3"} align={"center"}>
       <Text>Категорія:</Text>
