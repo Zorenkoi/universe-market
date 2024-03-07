@@ -14,6 +14,7 @@ const EmptyCart = ({ closeCart }: { closeCart: () => void }) => {
       <Image src={emptyCartImg} width={200} height={200} alt="empty cart" />
 
       <Button
+        className="cursor-pointer"
         onClick={() => {
           closeCart();
           if (pathName !== "/") router.push("/");

@@ -5,7 +5,7 @@ const DialogRemove = ({ handleDelete }: { handleDelete: () => void }) => {
   return (
     <AlertDialog.Root>
       <AlertDialog.Trigger>
-        <Button size={"3"} color="red">
+        <Button size={"3"} color="red" mt={"auto"} className="cursor-pointer">
           Прибрати з кошика
         </Button>
       </AlertDialog.Trigger>
@@ -17,12 +17,17 @@ const DialogRemove = ({ handleDelete }: { handleDelete: () => void }) => {
 
         <Flex gap="3" mt="4">
           <AlertDialog.Cancel>
-            <Button variant="soft" color="gray">
+            <Button variant="soft" color="gray" className="cursor-pointer">
               залишити
             </Button>
           </AlertDialog.Cancel>
           <AlertDialog.Action>
-            <Button variant="solid" color="red" onClick={handleDelete}>
+            <Button
+              variant="solid"
+              color="red"
+              onClick={handleDelete}
+              className="cursor-pointer"
+            >
               прибрати
             </Button>
           </AlertDialog.Action>

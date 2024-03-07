@@ -1,6 +1,6 @@
 "use client";
 import { Product } from "@/interfaces/interfaces";
-import { StarFilledIcon, StarIcon } from "@radix-ui/react-icons";
+import { StarFilledIcon } from "@radix-ui/react-icons";
 import { Box, Button, Card, Flex, Text } from "@radix-ui/themes";
 import Image from "next/image";
 import Link from "next/link";
@@ -20,14 +20,22 @@ const ProductCard = (product: Product) => {
     <Card className="relative">
       <Flex direction={"column"} gap={"4"} height={"100%"}>
         <Link href={`/${id}`}>
-          <Box className="relative h-64 bg-white">
-            <Image
-              fill
-              src={image}
-              alt={title}
-              sizes="cover"
-              className="object-contain hover:scale-90 duration-150"
-            />
+          <Box className="relative overflow-hidden h-64 bg-white">
+            <Flex
+              justify={"center"}
+              align={"center"}
+              className="absolute top-0 left-0 w-full h-full scale-110 hover:scale-100 duration-150"
+            >
+              <Box className="relative p-24">
+                <Image
+                  fill
+                  src={image}
+                  alt={title}
+                  sizes="contain"
+                  className="object-contain "
+                />
+              </Box>
+            </Flex>
           </Box>
         </Link>
 
@@ -49,7 +57,7 @@ const ProductCard = (product: Product) => {
           </Flex>
         </Flex>
         <Link href={`/${id}`}>
-          <Text mb={"auto"} className="font-semibold">
+          <Text className="font-semibold cursor-pointer hover:text-red-400 duration-300">
             {cutString(title, 25)}
           </Text>
         </Link>
@@ -79,7 +87,13 @@ export const CartAddRemoveButtons = ({ id, image, title, price }: Product) => {
     <>
       {isInCart && <DialogRemove handleDelete={handleDelete} />}
       {!isInCart && (
-        <Button onClick={handleAdd} color="green" size={"3"}>
+        <Button
+          className="cursor-pointer"
+          mt={"auto"}
+          onClick={handleAdd}
+          color="green"
+          size={"3"}
+        >
           Добавити у кошик
         </Button>
       )}

@@ -55,7 +55,7 @@ const Cart = () => {
                   router.push("/toorder");
                 }}
                 size={"3"}
-                className="w-full"
+                className="w-full cursor-pointer"
               >
                 Оформити замовлення
               </Button>

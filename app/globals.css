@@ -87,3 +87,21 @@ body {
 .hide-header {
   transform: translateY(-100%);
 }
+
+.frame::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+.frame::-webkit-scrollbar:vertical {
+  width: 11px;
+}
+
+.frame::-webkit-scrollbar:horizontal {
+  height: 11px;
+}
+
+.frame::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  border: 1px solid black;
+  background-color: rgba(0, 0, 0, 0.5);
+}

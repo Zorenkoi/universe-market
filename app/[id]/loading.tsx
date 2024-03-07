@@ -1,9 +1,19 @@
 import { Box, Flex, Grid, Separator } from "@radix-ui/themes";
 import Skeleton from "../components/Skeleton";
+import BackLink from "../components/BackLink";
 
 const OneProductLoadingPage = async () => {
   return (
     <>
+      <Box
+        mb={{
+          initial: "6",
+          xs: "7",
+        }}
+      >
+        <BackLink />
+      </Box>
+
       <Grid
         columns={{
           initial: "1",

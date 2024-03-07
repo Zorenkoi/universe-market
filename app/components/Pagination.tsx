@@ -48,6 +48,7 @@ const Pagination = ({ countItems, sizePage, currentPage }: Props) => {
       </Text>
       <Flex gap={"4"}>
         <Button
+          className="cursor-pointer"
           onClick={() => changePage(1)}
           disabled={currentPage === 1}
           color="gray"
@@ -57,6 +58,7 @@ const Pagination = ({ countItems, sizePage, currentPage }: Props) => {
           <DoubleArrowLeftIcon />
         </Button>
         <Button
+          className="cursor-pointer"
           onClick={() => changePage(currentPage - 1)}
           disabled={currentPage === 1}
           color="gray"
@@ -66,6 +68,7 @@ const Pagination = ({ countItems, sizePage, currentPage }: Props) => {
           <ChevronLeftIcon />
         </Button>
         <Button
+          className="cursor-pointer"
           onClick={() => changePage(currentPage + 1)}
           disabled={currentPage === countPages}
           color="gray"
@@ -75,6 +78,7 @@ const Pagination = ({ countItems, sizePage, currentPage }: Props) => {
           <ChevronRightIcon />
         </Button>
         <Button
+          className="cursor-pointer"
           onClick={() => changePage(countPages)}
           disabled={currentPage === countPages}
           color="gray"

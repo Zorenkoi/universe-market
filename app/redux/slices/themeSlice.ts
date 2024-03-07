@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { PayloadAction } from "@reduxjs/toolkit";
 
 const initialState: { isDarkTheme: boolean } = {
   isDarkTheme: false,

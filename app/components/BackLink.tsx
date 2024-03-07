@@ -1,8 +1,6 @@
 "use client";
-import { motion } from "framer-motion";
 import { ChevronLeftIcon } from "@radix-ui/react-icons";
-import { Flex, Text } from "@radix-ui/themes";
-import React from "react";
+import { Text } from "@radix-ui/themes";
 import { useRouter } from "next/navigation";
 
 const BackLink = () => {
@@ -10,7 +8,7 @@ const BackLink = () => {
 
   return (
     <div
-      className="inline-flex items-center gap-2 cursor-pointer hover:text-red-400 duration-300 "
+      className="inline-flex items-center gap-2 cursor-pointer hover:text-red-400 duration-300"
       onClick={() => {
         router.back();
       }}

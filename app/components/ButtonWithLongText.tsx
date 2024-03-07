@@ -10,7 +10,7 @@ interface Props {
 
 const ButtonWithLongText = ({ mainText, smallText, color, onClick }: Props) => {
   return (
-    <Button color={color} onClick={onClick}>
+    <Button color={color} onClick={onClick} className="cursor-pointer">
       <span className="hidden md:inline-block">{mainText}</span>
       <span className="md:hidden">{smallText}</span>
     </Button>

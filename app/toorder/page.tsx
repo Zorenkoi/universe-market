@@ -6,6 +6,7 @@ import {
   Flex,
   Grid,
   TextField,
+  Text,
 } from "@radix-ui/themes";
 import CartList from "../components/CartList";
 import TotalPurchaseAmount from "../components/TotalPurchaseAmount";
@@ -36,7 +37,7 @@ const ToOrderPage = () => {
       secondName: "",
       city: "",
       email: "",
-      phone: "+380 ",
+      phone: "",
     },
   });
 
@@ -47,7 +48,6 @@ const ToOrderPage = () => {
   };
   const formatPhone = (value: string) => {
     let phoneNumber = value;
-    phoneNumber = phoneNumber.slice(4);
     phoneNumber = phoneNumber.replace(/\s/g, "");
     phoneNumber = phoneNumber.replace(/[A-Za-zА-Яа-я]/g, "");
 
@@ -56,10 +56,10 @@ const ToOrderPage = () => {
     const thirdPart = phoneNumber.slice(5, 9);
 
     if (thirdPart.length > 0) {
-      phoneNumber = `+380 ${firstPart} ${secondPart} ${thirdPart}`;
+      phoneNumber = `${firstPart} ${secondPart} ${thirdPart}`;
     } else if (secondPart.length > 0) {
-      phoneNumber = `+380 ${firstPart} ${secondPart}`;
-    } else phoneNumber = `+380 ${firstPart}`;
+      phoneNumber = `${firstPart} ${secondPart}`;
+    } else phoneNumber = `${firstPart}`;
 
     setValue("phone", phoneNumber);
     trigger("phone");
@@ -87,12 +87,12 @@ const ToOrderPage = () => {
   const errorPhoneConfig = {
     required: "Поле не може бути пустим",
     minLength: {
-      value: 16,
-      message: "Мінімум 16 символів",
+      value: 11,
+      message: "Мінімум 11 символів",
     },
     maxLength: {
-      value: 16,
-      message: "Максимум 16 символів",
+      value: 11,
+      message: "Максимум 11 символів",
     },
   };
 
@@ -148,22 +148,31 @@ const ToOrderPage = () => {
               {/* ////////////////////////////////////////////////////////////// */}
 
               <InputContainer name="phone" errors={errors}>
+                <Text className="absolute  z-10 top-2 left-3">+380</Text>
                 <TextField.Input
                   {...register("phone", errorPhoneConfig)}
-                  size={"3"}
                   name="phone"
-                  placeholder="phone"
-                  type="tel"
-                  inputMode="numeric"
-                  autoComplete="cc-numeric"
+                  placeholder="00 000 0000"
                   onChange={(event) => {
                     const { value } = event.target;
                     event.target.value = formatPhone(value);
                   }}
+                  style={{
+                    paddingLeft: "45px",
+                  }}
+                  size={"3"}
+                  type="tel"
+                  inputMode="numeric"
+                  autoComplete="cc-numeric"
                 />
               </InputContainer>
 
-              <Button type="submit" size={"3"} disabled={!isValid}>
+              <Button
+                className="cursor-pointer"
+                type="submit"
+                size={"3"}
+                disabled={!isValid}
+              >
                 Відправити
               </Button>
             </Flex>
@@ -228,7 +237,7 @@ const DialogSuccess = ({
                 closeDialog();
                 router.push("/");
               }}
-              className="w-full"
+              className="w-full cursor-pointer"
               size={"3"}
               color="green"
             >

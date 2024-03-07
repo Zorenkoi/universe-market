@@ -39,7 +39,9 @@ const CartCard = ({
 
         <Flex direction="column" justify={"between"} width={"100%"}>
           <Link href={`/${id}`}>
-            <Text className="text-sm">{cutString(title, 30)}</Text>
+            <Text className="text-sm cursor-pointer hover:text-red-400 duration-300">
+              {cutString(title, 30)}
+            </Text>
           </Link>
 
           <Flex justify={"between"} align={"end"}>
@@ -50,6 +52,7 @@ const CartCard = ({
                   disabled={false}
                   color="gray"
                   variant="soft"
+                  className="cursor-pointer"
                 >
                   <Text className="font-bold">-</Text>
                 </Button>
@@ -59,6 +62,7 @@ const CartCard = ({
                   disabled={false}
                   color="gray"
                   variant="soft"
+                  className="cursor-pointer"
                 >
                   <Text className="font-bold">+</Text>
                 </Button>
